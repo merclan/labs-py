@@ -59,8 +59,8 @@ Solution:
 """
 #%%
 def areatriangle(b,h):
- 
- 
+    area = 0.5*b*h
+    print("The area of a triangle of base",b,"and height",h,"is",area)
 #%%
 """
 End solution
@@ -115,11 +115,8 @@ Solution:
 """
 #%%
 def celsius_to_fahrenheit(temp):
-
-
-
-
-
+    fTemp = (9/5 * temp) + 32
+    print('The Celsius temperature',temp,'is equivalent to',fTemp,'degrees Fahrenheit')
 #%%
 """
 End solution
@@ -164,13 +161,11 @@ def name():
     fname = input("Enter your first name: ")
     lname = input("Enter your last name: ")
     fullname = fname + " " + lname
+    city = input("Enter the city you live: ")
+    state = input("Enter the state you live: ")
     
-
-
-
-
     print("Your name is:", fullname)
-
+    print("you live in", city,",", state)
 
 #%%
 """
@@ -253,11 +248,11 @@ Solution:
 """
 #%%
 def absolutevalue(num):
-
-
-
-
-
+    if num < 0:
+        absolute = num * -1
+    else:
+        absolute = num
+    print("The absolute value of",num,"is",absolute)
 #%%
 """
 End solution
@@ -353,13 +348,14 @@ time.
 """
 Solution:
 """
+inches_to_feet1(25)
 #%%
 
 def inches_to_feet2(inches):
-
-
-
-
+    """ converts inches to feet and inches """
+    feet = inches//12
+    extra_inches = inches%12
+    print(inches,"inches is",feet,"feet and",extra_inches,"inches") 
 
 #%%
 """
@@ -393,14 +389,13 @@ all the numbers on the same line or different lines. Use a while loop.
 Solution:
 """
 #%%
-
-
-
-
-
-
-
-
+def count_down():
+    ct = 10
+    while ct > 0:
+        print(ct,end=" ")  # end = " " keeps from starting a new line
+        ct = ct-1
+    print()                # now we'll start a new line
+    print("BLASTOFF!")
 #%%
 """
 End solution
@@ -432,10 +427,10 @@ Solution:
 """
 #%%
 def countdown1():
-
-
-
-
+    for ct in range(10,0,-1):
+        print(ct,end=' ')
+    print()
+    print("BLASTOFF!")
 #%%
 """
 End solution
@@ -458,13 +453,9 @@ def favorite():
 """
 My solution:
 """
-
-
-
-
-
-
-
+def favorite():
+    my_toy = input("What is my favorite toy? ")
+    print("Your favorite toy is", my_toy)
 #%%
 """
 end solution
