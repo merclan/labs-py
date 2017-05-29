@@ -146,19 +146,26 @@ function should pass all three tests below.
 #%% 
 letter_list = ['a', 'b', 'c']
 cap_list = ['A', 'B', 'C', 'D']
-misc_list) = ['ball', 3.14, -50, 'university', "course"]
+misc_list = ['ball', 3.14, -50, 'university', "course"]
 #%%
 """
 Solution:
 """
 #%%
-
-
-
+def print_lis(lis):
+    for el in lis:
+        print(el,end=" ")
+    print()
 #%%
 """
 End solution
 """
+#%%
+print_lis(letter_list)
+print_lis(cap_list)
+print_lis(misc_list)
+#%%
+
 """
 Lets' talk about data types. For starters Python has integers (e.g., 40), float
 or real numbers (e.g., 40.0), string ("hello"), list ( ['a','b','c']), bool
