@@ -277,12 +277,19 @@ What is the population of the state in the second element?
 Solution:
 """
 #%%
-
-
-
-
-
-
+print(newEngland[0])
+#[Massachusetts,6692824]
+print(newEngland[1])
+#[Connecticut,3596080]
+print(newEngland[1][0])
+#Connecticut
+print(newEngland[1][1])
+#3596080
+def state_array(lis):
+    for item in lis:
+        for state in item:
+            print(state, end=" ")
+        print()
 
 #%%
 """
@@ -386,36 +393,13 @@ Solution Starter:
 """
 #%%
 def average(nlis):
-    pass  # delete this and enter your code starting here
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    size = len(nlis)
+    sum_ = 0
+    for i in range (0, size):
+        sum_= sum_ + nlis[i]
+        print(nlis[i], end=" ")
+    print()
+    print("the average is:", sum_/size)
 #%%
 """
 End solution
