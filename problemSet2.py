@@ -27,14 +27,11 @@ does all of the following, each on a separate line:
 """  
 #%%      
 def problem2_1():
-    pass # replace this pass (a do-nothing) statement with your code
-
-
-
-
-
-
-
+    lis = list(range(20,30))
+    print(lis[3])
+    print(lis)
+    for item in lis:
+        print(item, end=" ")
 #%%
 """
 Test run:
@@ -70,18 +67,41 @@ alist = ["a","e","i","o","u","y"]
 blist = ["alpha", "beta", "gamma", "delta", "epsilon", "eta", "theta"] 
 
 def problem2_2(my_list):
-    pass # replace this pass (a do-nothing) statement with your code
+    # print the whole list (this doesn't require a while or for loop)
+    print(my_list)
+    
+    #print the item with index 0
+    print(my_list[0])
+    
+    #print the last item in the list
+    print(my_list[-1])
+    
+    #print the items with indexes 3 through 5 but not including 5
+    temp = []
+    for i in range(3,5):
+        temp.append(my_list[i])
+    print(temp)
+    
+    #print the items up to the one with index 3 but not including item 3
+    temp = []
+    for i in range(3):
+        temp.append(my_list[i])
+    print(temp)
+    
+    #print the items starting at index 3 and going through the end.
+    temp = []
+    for i in range (3, len(my_list)):
+        temp.append(my_list[i])
+    print(temp)
+    
+    #print the length of the list ( use len() )
+    print(len(my_list))
+    
+    #Use the append() method of a list to append the letter "z" onto alist.
+    my_list.append("z")
 
-
-
-
-
-
-
-
-
-
-
+    #Print the list with z appended.
+    print(my_list)
 #%%
 """
 Test run, two of them. The same function should work with either list. The 
@@ -132,8 +152,8 @@ newEngland = ["Maine","New Hampshire","Vermont", "Rhode Island",
 "Massachusetts","Connecticut"]
 
 def problem2_3(ne):
-    pass # replace this pass (a do-nothing) statement with your code
-
+    for item in ne:
+        print(item, "has", len(item),"letters.")
     
 #%%
 """
@@ -152,8 +172,11 @@ import random
 
 def problem2_4():
     """ Make a list of 10 random reals between 30 and 35 """
-    random.seed()
-    pass # replace this pass (a do-nothing) statement with your code
+    r = []
+    random.seed(70)
+    for i in range(10):
+        r.append(random.random()*5+30)
+    print(r)
 
 #%%
 """
@@ -200,6 +223,7 @@ problem2_5()
 """
 Problem 2_5:
 """
+#%%
 import random
 
 def problem2_5():
@@ -207,7 +231,8 @@ def problem2_5():
     # Setting the seed makes the random numbers always the same
     # This is to make the auto-grader's job easier.
     random.seed(171)  # don't remove when you submit for grading
-    pass # replace this pass (a do-nothing) statement with your code
+    for i in range(10):
+        print(random.randint(1,6))
 
 #%%
 """
@@ -226,9 +251,10 @@ def problem2_6():
     # Setting the seed makes the random numbers always the same
     # This is to make the auto-grader's job easier.
     random.seed(431)  # don't remove when you submit for grading
-    pass # replace this pass (a do-nothing) statement with your code
-
-   
+    for i in range(100):
+        dice1 = random.randint(1,6)
+        dice2 = random.randint(1,6)
+        print(dice1 + dice2)
 #%%
 """
 Test run with seed 82, but make sure that you submit with the seed 431:
@@ -285,11 +311,15 @@ Area of a triangle with sides 9.0 12.0 15.0 is 54.0
  
 """
 #%%
-
 def problem2_7():
     """ computes area of triangle using Heron's formula. """
-    pass # replace this pass (a do-nothing) statement with your code
-    
+    sideOne = float(input("Enter length of side one: "))
+    sideTwo = float(input("Enter length of side two: "))
+    sideThree = float(input("Enter length of side three: "))
+    s = 0.5 * (sideOne + sideTwo + sideThree)
+    area = (s*(s-sideOne)*(s-sideTwo)*(s-sideThree))**0.5
+           
+    print("Area of a triangle with sides", sideOne, sideTwo, sideThree,"is", area)
 #%%
 """ 
 Problem 2_8:
@@ -308,11 +338,11 @@ called max() and min() that could also be used to do part of the jobs.
 hourly_temp = [40.0, 39.0, 37.0, 34.0, 33.0, 34.0, 36.0, 37.0, 38.0, 39.0, \
                40.0, 41.0, 44.0, 45.0, 47.0, 48.0, 45.0, 42.0, 39.0, 37.0, \
                36.0, 35.0, 33.0, 32.0]
-#%%
+
 def problem2_8(temp_list):
-    pass # replace this pass (a do-nothing) statement with your code
-        
-    
+    print("Average:",sum(temp_list)/len(temp_list))
+    print("High:",max(temp_list))
+    print("Low:",min(temp_list))    
 #%%
 """
 Sample run using the list hourly_temp. Note that the grader will use a
