@@ -469,29 +469,10 @@ adverbs=["handily","sweetly","sourly","gingerly","forcefully","meekly"]
 articles=["a","the","that","this"]
 
 def simple_poem():
-    article = random.choice(articles)    
-    noun = random.choice(nouns)
-    verb = random.choice(verbs)
-    adverb = random.choice(adverbs)
-    
-    our_sentence = article + " " + noun + " " + verb + " " + adverb + "."
-    our_sentence = our_sentence.capitalize()
-    
-    print(our_sentence)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    for i in range(0, 4):
+        our_sentence = random.choice(articles) + " " + random.choice(nouns) + " " + random.choice(verbs) + " " + random.choice(adverbs) + "."
+        our_sentence = our_sentence.capitalize()
+        print(our_sentence)
 #%%
 """
 End Solution:
@@ -573,16 +554,14 @@ You've ordered:
 Solution:
 """
 #%%
-
-
-
-
-
-
-
-
-
-
-
-
+def diner_waitress():
+    order = []
+    print("Hello, I'll be your waitress. What will you have?")
+    while True:
+        menu_item = input("menu item: ")
+        if ( menu_item == "that's all"):
+            break
+        order.append(menu_item)
+    print("You've ordered:")
+    print(order)
 #%%
