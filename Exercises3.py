@@ -1,4 +1,4 @@
-# -Exercises3.py *- coding: utf-8 -*-
+con# -Exercises3.py *- coding: utf-8 -*-
 
 """
 TUPLES
@@ -293,11 +293,13 @@ outline of what needs to be done is given as comments.
 #%% 
 def write_to_file(filename, myname, myage, major):
     # open file first
+    outfile = open(filename,'w')
     outfile.write("My name is "+ myname + " \n")
     # write out the age and major in two lines
+    outfile.write("My age is "+ str(myage) + " \n")
+    outfile.write("I am majoring in "+ major + " \n")
     # close the file
-
-    
+    outfile.close()
 #%%
 """
 RUNNING STANDALONE SCRIPTS OR PROGAMS.
@@ -613,7 +615,9 @@ def read_csv_file2(filename):
     """Reads a CSV file and prints each row without list brackets. """
     f = open(filename)
     for row in csv.reader(f):
-        pass # replace this line with your code
+        for item in row:
+            print(item,end=" ")
+        print()
     f.close()
 #%%
 """
@@ -681,20 +685,29 @@ Solution starter:
 """
 #%%
 def name_phone(csv_filename):
-    
+    import csv
     # open the csv file here
-    
+    f = open(csv_filename, 'w', newline='')
     while True:
+        row = []
         nextname = input("Enter a friend's name, press return to end: ")
         if nextname == "":
             break              # break jumps out of the loop
+       
+        nextphone = input("Enter your friend's phone: ")
         print(nextname) 
-        
-        # add lines here to build a row (that is, a list) and append these
-        # two pieces of data to it.  Write to the csv file
-        
-    # don't forget to close the csv file
-        
+        print(nextphone) 
+        row.append(nextname)
+        row.append(nextphone)
+        csv.writer(f).writerow(row)
+    f.close()
+    
+    f = open(csv_filename)
+    for row in csv.reader(f):
+        for item in row:
+            print(item,end=" ")
+        print()
+    f.close()
 #%% 
 """
 Example run:
@@ -719,7 +732,7 @@ Jerry Seinfeld,(212) 434-1234
 Elaine Benes,(212) 123-6543
 
 """
- """
+"""
 Updating a csv file
 
 Let us read a CSV file containing a person's daily weights and compute the 
