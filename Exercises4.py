@@ -96,14 +96,19 @@ Out[2]:
 Solution:
 """
 #%%
+import random
 
-
-
-
-
-
-
-
+def make_random_real():
+    """ Make a list of 10 random integers that are the same each time """
+    numlis = []
+    for i in range(0,10):
+        numlis.append(random.random())
+    return numlis
+    
+def call_make_random_real():
+    """ Uses make_same_random to get a list of random numbers """
+    random_integers = make_random_real()
+    print(random_integers)
 #%% 
 """
 End solution
@@ -147,17 +152,20 @@ Out[46]:
 Solution:
 """  
 #%%
+import random
 
-
-
-
-
-
-
-
-
-
+def make_random_real():
+    """ Make a list of 10 random integers that are the same each time """
+    numlis = []
+    random.seed(17)        # set the seed from which random numbers are made
+    for i in range(0,10):
+        numlis.append(random.random())
+    return numlis
     
+def call_make_random_real():
+    """ Uses make_same_random to get a list of random numbers """
+    random_integers = make_random_real()
+    print(random_integers)
 #%%
 """
 End solution
@@ -369,6 +377,7 @@ random.seed(77)
 temperatures = []
 for i in range(0,20):
     temperatures.append(random.randint(20,95))
+print(temperatures)
 #%%
 """
 Solution:
@@ -376,19 +385,13 @@ Solution:
 #%%
 def temp_stat(temps):
     """ prints the average, median, std dev, and variance of temps """
-    pass # replace this pass (a do-nothing) statement with your code
+    import statistics
     
-
-
-
-
-
-
-
-
-
-
-
+    print("Mean: ", statistics.mean(temps))
+    print("Median: ", statistics.median(temps))
+    print("Standard Deviation: ", statistics.stdev(temps))
+    print("Variance: ", statistics.variance(temps))
+    print("Exception was: ", e)
 #%%
 """
 End solution
@@ -420,17 +423,16 @@ Solution:
 #%%
 def temp_stat(temps):
     """ computes the average, median, std dev, and variance of temps """
-    pass # replace this pass (a do-nothing) statement with your code
-
-
-
-
-
-
-
-
-
-
+    import statistics
+    
+    try:
+        print("Mean: ", statistics.mean(temps))
+        print("Median: ", statistics.median(temps))
+        print("Standard Deviation: ", statistics.stdev(temps))
+        print("Variance: ", statistics.variance(temps))
+        print("Mode: ", statistics.mode(temps))  
+    except Exception as e:
+        print("Exception was: ", e)
 #%%
 
 """
@@ -513,11 +515,17 @@ print("Start||{}||End".format(s))
 Solution:
 """
 s = "hello, there"
-
-
-
-
-
+#%%
+print("Start||{}||End".format(s))
+#%%
+print("Start||{0:25}||End - minimum width 25".format(s))
+#%%
+print("Start||{0:>25}||End - width 25, right aligned".format(s))
+#%%
+print("Start||{0:<25}||End - width 25, left aligned".format(s))
+#%%
+print("Start||{0:^25}||End - width 25, centered".format(s))
+#%%
 """
 End Solution
 """
