@@ -88,17 +88,33 @@ def create_phone():
     newphone_num = input("Enter phone number: ")
     phone = [newname,newphone_num]
     phones.append(phone)
+
+def reorder_phones():
+    phonesDic = {}
+    names = []
     
+    for phone in phones:
+        phonesDic.update({phone[0]:phone[1]})
+        names.append(phone[0])
+        
+    names.sort() #sort the keys in the dictionary
+    phones.clear() #remove all the previous elements 
+    
+    for key in names:
+        phone = [key, phonesDic[key]]
+        phones.append(phone)
+        
 def menu_choice():
     """ Find out what the user wants to do next. """
     print("Choose one of the following options?")
     print("   s) Show")
+    print("   r) Reorder")
     print("   n) New")
     print("   d) Delete")
     print("   e) Edit")
     print("   q) Quit")
     choice = input("Choice: ")    
-    if choice.lower() in ['n','d', 's','e', 'q']:
+    if choice.lower() in ['n','d', 's','r','e', 'q']:
         return choice.lower()
     else:
         print(choice +"?")
@@ -125,6 +141,8 @@ def main_loop():
             delete_phone(which)
         elif choice == 's':
             show_phones()
+        elif choice == 'r':
+            reorder_phones()
         elif choice == 'e':
             which = input("Which item do you want to edit? ")
             print("which is ", which)
